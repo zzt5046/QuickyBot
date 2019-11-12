@@ -1,4 +1,4 @@
-package events;
+package commands;
 
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
@@ -18,12 +18,16 @@ public class BasicCommand extends ListenerAdapter {
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event){
         this.event = event;
+        String message = event.getMessage().getContentRaw();
         String[] inMessage = event.getMessage().getContentRaw().split(" ");
         String prefix = inMessage[0];
 
         boolean isNotBot = !event.getMessage().getAuthor().isBot();
-// for the lols
+
         if(isNotBot) {
+            if(message.contains("mayes") || message.contains("Mayes")){
+                event.getChannel().sendMessage("Oh didn't you know? Mayes diddles boys!").queue();
+            }
             if (prefix.equalsIgnoreCase("!add")) {
                 calcAddition(inMessage);
             } else if (prefix.equalsIgnoreCase("!subtract")) {
@@ -33,15 +37,19 @@ public class BasicCommand extends ListenerAdapter {
             } else if (prefix.equalsIgnoreCase("!divide")) {
                 calcDivide(inMessage);
             } else if(prefix.startsWith("!")){
-                printInvalid();
+                printInvalid(prefix);
             }
         }
 
     }
 
     private void calcAddition(String[] message){
-        Double ret = Double.parseDouble(message[1]) + Double.parseDouble(message[2]);
-        printCalcMessage(ret);
+        try {
+            Double ret = Double.parseDouble(message[1]) + Double.parseDouble(message[2]);
+            printCalcMessage(ret);
+        }catch(Exception e){
+
+        }
     }
     private void calcSubtraction(String[] message){
         Double ret = Double.parseDouble(message[1]) - Double.parseDouble(message[2]);
@@ -65,8 +73,8 @@ public class BasicCommand extends ListenerAdapter {
             event.getChannel().sendMessage("It's " + Double.toString(num) + ", you " + getRandomInsult() + ".").queue();
         }
     }
-    private void printInvalid(){
-        event.getChannel().sendMessage("Invalid command! Format is: !{operation} {num1} {num2}").queue();
+    private void printInvalid(String prefix){
+        event.getChannel().sendMessage("Invalid command: (" + prefix + ") / Format is: !{operation} {num1} {num2}").queue();
     }
 
     private String getRandomInsult(){
