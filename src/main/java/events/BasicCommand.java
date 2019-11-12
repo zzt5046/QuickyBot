@@ -22,7 +22,7 @@ public class BasicCommand extends ListenerAdapter {
         String prefix = inMessage[0];
 
         boolean isNotBot = !event.getMessage().getAuthor().isBot();
-//lols
+// for the lols
         if(isNotBot) {
             if (prefix.equalsIgnoreCase("!add")) {
                 calcAddition(inMessage);
