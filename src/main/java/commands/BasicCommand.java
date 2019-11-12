@@ -17,6 +17,11 @@ public class BasicCommand extends ListenerAdapter {
     private ArrayList<String> insults = new ArrayList<>();
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event){
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         this.event = event;
         String message = event.getMessage().getContentRaw();
         String[] inMessage = event.getMessage().getContentRaw().split(" ");
@@ -82,7 +87,6 @@ public class BasicCommand extends ListenerAdapter {
         File insultFile = new File(getClass().getClassLoader().getResource("insults.txt").getFile());
         try {
             Scanner s = new Scanner(insultFile);
-            ArrayList<String> list = new ArrayList<>();
             while (s.hasNext()) {
                 insults.add(s.next());
             }
