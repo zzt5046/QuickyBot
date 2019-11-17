@@ -64,10 +64,10 @@ public class CalcCommand extends BasicCommand{
     private void printCalcMessage(double num){
         if(Math.floor(num) == num){
             Integer intConvert = (int) num;
-            event.getChannel().sendMessage("It's " + Integer.toString(intConvert) + ", you " + getRandomInsult() + ".").queue();
+            event.getChannel().sendMessage("It's **" + Integer.toString(intConvert) + "**, you " + getRandomInsult() + ".").queue();
         }
         else{
-            event.getChannel().sendMessage("It's " + Double.toString(num) + ", you " + getRandomInsult() + ".").queue();
+            event.getChannel().sendMessage("It's **" + Double.toString(num) + "**, you " + getRandomInsult() + ".").queue();
         }
     }
 }

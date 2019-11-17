@@ -3,12 +3,13 @@ package enums;
 import java.util.ArrayList;
 import java.util.List;
 
-public enum CalculationType {
-    add, subtract, multiply, divide;
+public enum QuoteType {
+
+    quote, get_quote, get_quotes;
 
     public static List<String> getValues(){
         List<String> values = new ArrayList<>();
-        for(CalculationType type : CalculationType.values()){
+        for(QuoteType type : QuoteType.values()){
             values.add(type.toString());
         }
         return values;
