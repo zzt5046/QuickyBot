@@ -40,7 +40,8 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
-                    <include>insults.txt</include>
+                    <include>*.txt</include>
+                    <include>*.properties</include>
                 </includes>
             </resource>
         </resources>

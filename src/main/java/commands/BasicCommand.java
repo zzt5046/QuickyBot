@@ -1,5 +1,6 @@
 package commands;
 
+import enums.CalculationType;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -11,78 +12,53 @@ import java.util.Scanner;
 
 public class BasicCommand extends ListenerAdapter {
 
-    private GuildMessageReceivedEvent event;
+    GuildMessageReceivedEvent event;
 
     //lol
     private ArrayList<String> insults = new ArrayList<>();
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event){
+        try {
+            Thread.sleep(200);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         this.event = event;
         String message = event.getMessage().getContentRaw();
-        String[] inMessage = event.getMessage().getContentRaw().split(" ");
-        String prefix = inMessage[0];
+        String[] inMessageArray = message.split(" ");
+        String prefix = inMessageArray[0];
+        String command = prefix.replace("!", "");
 
         boolean isNotBot = !event.getMessage().getAuthor().isBot();
+        boolean isCalcCommand = CalculationType.getValues().contains(command);
 
         if(isNotBot) {
-            if(message.contains("mayes") || message.contains("Mayes")){
-                event.getChannel().sendMessage("Oh didn't you know? Mayes diddles boys!").queue();
+            if(isCalcCommand){
+                new CalcCommand(event, command, inMessageArray);
             }
-            if (prefix.equalsIgnoreCase("!add")) {
-                calcAddition(inMessage);
-            } else if (prefix.equalsIgnoreCase("!subtract")) {
-                calcSubtraction(inMessage);
-            } else if (prefix.equalsIgnoreCase("!multiply")) {
-                calcMultiply(inMessage);
-            } else if (prefix.equalsIgnoreCase("!divide")) {
-                calcDivide(inMessage);
-            } else if(prefix.startsWith("!")){
+            else if(prefix.startsWith("!")){
                 printInvalid(prefix);
             }
+
+            if(message.toLowerCase().contains("mayes")){
+                event.getChannel().sendMessage("Oh didn't you know? Mayes diddles boys!").queue();
+            }
+            else if(message.toLowerCase().contains("yit") || message.toLowerCase().contains("wyatt")){
+                event.getChannel().sendMessage("Are you taking about Wyatt - the saltiest boi?").queue();
+            }
         }
 
     }
 
-    private void calcAddition(String[] message){
-        try {
-            Double ret = Double.parseDouble(message[1]) + Double.parseDouble(message[2]);
-            printCalcMessage(ret);
-        }catch(Exception e){
-
-        }
-    }
-    private void calcSubtraction(String[] message){
-        Double ret = Double.parseDouble(message[1]) - Double.parseDouble(message[2]);
-        printCalcMessage(ret);
-    }
-    private void calcMultiply(String[] message){
-        Double ret = Double.parseDouble(message[1]) * Double.parseDouble(message[2]);
-        printCalcMessage(ret);
-    }
-    private void calcDivide(String[] message){
-        Double ret = Double.parseDouble(message[1]) / Double.parseDouble(message[2]);
-        printCalcMessage(ret);
-    }
-
-    private void printCalcMessage(double num){
-        if(Math.floor(num) == num){
-            Integer intConvert = (int) num;
-            event.getChannel().sendMessage("It's " + Integer.toString(intConvert) + ", you " + getRandomInsult() + ".").queue();
-        }
-        else{
-            event.getChannel().sendMessage("It's " + Double.toString(num) + ", you " + getRandomInsult() + ".").queue();
-        }
-    }
     private void printInvalid(String prefix){
-        event.getChannel().sendMessage("Invalid command: (" + prefix + ") / Format is: !{operation} {num1} {num2}").queue();
+        event.getChannel().sendMessage("Invalid command: " + prefix).queue();
     }
 
-    private String getRandomInsult(){
+    public String getRandomInsult(){
 
         File insultFile = new File(getClass().getClassLoader().getResource("insults.txt").getFile());
         try {
             Scanner s = new Scanner(insultFile);
-            ArrayList<String> list = new ArrayList<>();
             while (s.hasNext()) {
                 insults.add(s.next());
             }
