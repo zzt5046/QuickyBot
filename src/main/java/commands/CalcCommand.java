@@ -5,24 +5,31 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 public class CalcCommand extends BasicCommand{
 
     GuildMessageReceivedEvent event;
+    String[] inMessage;
     private String numberFormatErrorMessage = "You entered a parameter that is not a number.";
 
+    //constructor handles task delegation based upon the command passed
     public CalcCommand(GuildMessageReceivedEvent event, String command, String[] inMessage){
         this.event = event;
+        this.inMessage = inMessage;
         if (command.equals("add")) {
-            calcAddition(inMessage);
+            calcAddition();
         } else if (command.equals("subtract")) {
-            calcSubtraction(inMessage);
+            calcSubtraction();
         } else if (command.equals("multiply")) {
-            calcMultiply(inMessage);
+            calcMultiply();
         } else if (command.equals("divide")) {
-            calcDivide(inMessage);
+            calcDivide();
         }
     }
 
-    private void calcAddition(String[] message){
+    //All calc methods are the same; do the certain calculation and print if possible.
+    //If there is a number format exception (some asshole fucking with the system) we just
+    //print a statement saying its an invalid argument
+
+    private void calcAddition(){
         try {
-            Double ret = Double.parseDouble(message[1]) + Double.parseDouble(message[2]);
+            Double ret = Double.parseDouble(inMessage[1]) + Double.parseDouble(inMessage[2]);
             printCalcMessage(ret);
         }catch(NumberFormatException e){
             event.getChannel().sendMessage(numberFormatErrorMessage).queue();
@@ -30,9 +37,9 @@ public class CalcCommand extends BasicCommand{
             ohno.printStackTrace();
         }
     }
-    private void calcSubtraction(String[] message){
+    private void calcSubtraction(){
         try {
-            Double ret = Double.parseDouble(message[1]) - Double.parseDouble(message[2]);
+            Double ret = Double.parseDouble(inMessage[1]) - Double.parseDouble(inMessage[2]);
             printCalcMessage(ret);
         }catch(NumberFormatException e){
             event.getChannel().sendMessage(numberFormatErrorMessage).queue();
@@ -40,9 +47,9 @@ public class CalcCommand extends BasicCommand{
             ohno.printStackTrace();
         }
     }
-    private void calcMultiply(String[] message){
+    private void calcMultiply(){
         try {
-            Double ret = Double.parseDouble(message[1]) * Double.parseDouble(message[2]);
+            Double ret = Double.parseDouble(inMessage[1]) * Double.parseDouble(inMessage[2]);
             printCalcMessage(ret);
         }catch(NumberFormatException e){
             event.getChannel().sendMessage(numberFormatErrorMessage).queue();
@@ -50,9 +57,9 @@ public class CalcCommand extends BasicCommand{
             ohno.printStackTrace();
         }
     }
-    private void calcDivide(String[] message){
+    private void calcDivide(){
         try {
-            Double ret = Double.parseDouble(message[1]) / Double.parseDouble(message[2]);
+            Double ret = Double.parseDouble(inMessage[1]) / Double.parseDouble(inMessage[2]);
             printCalcMessage(ret);
         }catch(NumberFormatException e){
             event.getChannel().sendMessage(numberFormatErrorMessage).queue();
@@ -61,6 +68,7 @@ public class CalcCommand extends BasicCommand{
         }
     }
 
+    //takes results generated above, pulls a generated insults, and prints the completed statement to server
     private void printCalcMessage(double num){
         if(Math.floor(num) == num){
             Integer intConvert = (int) num;
