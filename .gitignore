@@ -1,4 +1,5 @@
 .idea/
 src/main/resources/properties.properties
-src/main/resources/savedFiles/
+savedFiles/
 target/classes/properties.properties
+target/
