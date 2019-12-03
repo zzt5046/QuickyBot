@@ -2,11 +2,13 @@ package commands;
 
 import enums.CalculationType;
 import enums.QuoteType;
+import enums.WordnikType;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -44,6 +46,7 @@ public class BasicCommand extends ListenerAdapter {
         //booleans to determine the type of command being used
         boolean isCalcCommand = CalculationType.getValues().contains(command);
         boolean isQuoteCommand = QuoteType.getValues().contains(command);
+        boolean isWordnikCommand = WordnikType.getValues().contains(command);
 
         //here we are sending off the message to the applicable command class if necessary.
         //If it is not sent off, the user is using an incorrect command
@@ -52,6 +55,12 @@ public class BasicCommand extends ListenerAdapter {
                 new CalcCommand(event, command, inMessageArray);
             } else if (isQuoteCommand) {
                 new QuoteCommand(event, command, inMessageArray);
+            } else if(isWordnikCommand) {
+                try {
+                    new WordnikCommand(event, command, inMessageArray);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else if (prefix.startsWith("!")) {
                 printInvalid(prefix);
             }
