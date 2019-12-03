@@ -54,7 +54,7 @@ public class BasicCommand extends ListenerAdapter {
             if (isCalcCommand) {
                 new CalcCommand(event, command, inMessageArray);
             } else if (isQuoteCommand) {
-                new QuoteCommand(event, command, inMessageArray);
+                new QuoteCommand(event, command, message);
             } else if(isWordnikCommand) {
                 try {
                     new WordnikCommand(event, command, inMessageArray);
@@ -64,10 +64,8 @@ public class BasicCommand extends ListenerAdapter {
             } else if (prefix.startsWith("!")) {
                 printInvalid(prefix);
             }
-        }
-
-        //for expl, see below
-        else if(isNotBot){
+        } else if(isNotBot){
+            //for expl, see below
             checkForEasterEggs(message);
         }
     }
