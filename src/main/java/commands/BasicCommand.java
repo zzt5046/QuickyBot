@@ -93,7 +93,7 @@ public class BasicCommand extends ListenerAdapter {
             Scanner s = new Scanner(insultFile);
             while (s.hasNext()) {
                 //the asterisks format the text in-app to be bold/italics. for the drama, you know?
-                insults.add("***"+s.next()+"***");
+                insults.add(italicize(s.next()));
             }
             s.close();
         }catch(FileNotFoundException e){
@@ -103,5 +103,9 @@ public class BasicCommand extends ListenerAdapter {
         Random r = new Random();
         int index = r.nextInt((insults.size() - 0) + 1) + 0;
         return insults.get(index);
+    }
+
+    private String italicize(String in){
+        return "***"+in+"***";
     }
 }
