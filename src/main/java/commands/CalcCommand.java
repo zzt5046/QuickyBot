@@ -1,8 +1,9 @@
 package commands;
 
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import utils.CommandUtil;
 
-public class CalcCommand extends BasicCommand{
+public class CalcCommand{
 
     GuildMessageReceivedEvent event;
     String[] inMessage;
@@ -72,10 +73,10 @@ public class CalcCommand extends BasicCommand{
     private void printCalcMessage(double num){
         if(Math.floor(num) == num){
             Integer intConvert = (int) num;
-            event.getChannel().sendMessage("It's **" + Integer.toString(intConvert) + "**, you " + getRandomInsult() + ".").queue();
+            event.getChannel().sendMessage("It's **" + Integer.toString(intConvert) + "**, you " + CommandUtil.getRandomInsult() + ".").queue();
         }
         else{
-            event.getChannel().sendMessage("It's **" + Double.toString(num) + "**, you " + getRandomInsult() + ".").queue();
+            event.getChannel().sendMessage("It's **" + Double.toString(num) + "**, you " + CommandUtil.getRandomInsult() + ".").queue();
         }
     }
 }

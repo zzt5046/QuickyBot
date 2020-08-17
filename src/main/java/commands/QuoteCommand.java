@@ -5,14 +5,13 @@ import enums.FileType;
 import main.FileController;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
-import javax.imageio.IIOException;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class QuoteCommand extends BasicCommand{
+public class QuoteCommand{
 
     GuildMessageReceivedEvent event;
     String inMessage;

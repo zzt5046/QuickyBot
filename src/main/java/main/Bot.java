@@ -1,10 +1,9 @@
 package main;
 
-import commands.BasicCommand;
+import commands.BasicEventListener;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
-
 import javax.security.auth.login.LoginException;
 
 public class Bot {
@@ -13,6 +12,6 @@ public class Bot {
         PropertyLoader propertyLoader = new PropertyLoader();
         JDA jda = new JDABuilder(propertyLoader.getProperty("token")).build();
         jda.getPresence().setGame(Game.playing("with your mom"));
-        jda.addEventListener(new BasicCommand());
+        jda.addEventListener(new BasicEventListener());
     }
 }
