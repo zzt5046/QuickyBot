@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class CommandUtil {
-
-    private static ArrayList<String> insults = new ArrayList<>();
+public class QuickyBotUtils {
 
     public static String getRandomInsult(){
 
-        File insultFile = new File(CommandUtil.class.getClassLoader().getResource("insults.txt").getFile());
+        ArrayList<String> insults = new ArrayList<>();
+
+        File insultFile = new File(QuickyBotUtils.class.getClassLoader().getResource("insults.txt").getFile());
         try {
             Scanner s = new Scanner(insultFile);
             while (s.hasNext()) {
@@ -27,6 +27,10 @@ public class CommandUtil {
         Random r = new Random();
         int index = r.nextInt((insults.size() - 0) + 1) + 0;
         return insults.get(index);
+    }
+
+    public static String bold(String in){
+        return "**"+in+"**";
     }
 
     public static String italicize(String in){

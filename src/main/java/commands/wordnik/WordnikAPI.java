@@ -1,36 +1,22 @@
-package commands;
+package commands.wordnik;
 
-import enums.WordnikType;
 import main.PropertyLoader;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 import java.io.IOException;
-import java.net.*;
+import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class WordnikCommand{
+public class WordnikAPI {
 
-    GuildMessageReceivedEvent event;
-    private final HttpClient httpClient = HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).build();
-    boolean failed = false;
+    private static final HttpClient httpClient = HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).build();
+    private static boolean failed = false;
 
-    public WordnikCommand(GuildMessageReceivedEvent event, String command, String[] inMessage) throws IOException {
-        this.event = event;
-        String word = inMessage[1];
-        if (command.equals("define")) {
-            String url = getCommandURL(WordnikType.define, word);
-            String definition = doGet(url, WordnikType.define);
-            if(!failed) {
-                event.getChannel().sendMessage("**" + word + "**: " + definition).queue();
-            }
-        }
-    }
-
-    private String doGet(String urlString, WordnikType type) throws IOException {
+    static String call(String urlString, WordnikType type) throws IOException {
         String returnInfo = "";
 
         PropertyLoader properties = new PropertyLoader();
@@ -56,17 +42,13 @@ public class WordnikCommand{
         }catch (Exception e){
             e.printStackTrace();
             failed = true;
-            event.getChannel().sendMessage(getCommandErrorMessage(type)).queue();
+            return getCommandErrorMessage(type);
         }
 
         return returnInfo;
     }
 
-    private String getCommandURL(WordnikType commandType, String word){
-        return commandType.getURL().replace("@", word);
-    }
-
-    private String getCommandErrorMessage(WordnikType type){
+    private static String getCommandErrorMessage(WordnikType type){
         if(type == WordnikType.define){
             return "Something went wrong. Potential causes:\n- It probably isn't a word, you fuckin idiot.\n- The dictionaries didn't have a definition.\n- The request limit for a certain time period has been exceeded.";
         }
@@ -74,13 +56,7 @@ public class WordnikCommand{
         return null;
     }
 
-    private String replaceFormatting(String in){
-        return in.replace("<spn>", "***")
-                .replace("</spn>", "***")
-                .replace("<xref>", "")
-                .replace("</xref>", "")
-                .replace("<ex>", "***")
-                .replace("</ex>", "***");
+    private static String replaceFormatting(String in){
+        return in.replaceAll("\\<.*?\\>", "");
     }
-
 }

@@ -1,4 +1,4 @@
-package enums;
+package commands.wordnik;
 
 import java.util.ArrayList;
 import java.util.List;
