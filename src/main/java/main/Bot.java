@@ -1,6 +1,6 @@
 package main;
 
-import commands.BasicEventListener;
+import commands.EventListener;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
@@ -12,6 +12,6 @@ public class Bot {
         PropertyLoader propertyLoader = new PropertyLoader();
         JDA jda = new JDABuilder(propertyLoader.getProperty("token")).build();
         jda.getPresence().setGame(Game.playing("with your mom"));
-        jda.addEventListener(new BasicEventListener());
+        jda.addEventListener(new EventListener());
     }
 }
