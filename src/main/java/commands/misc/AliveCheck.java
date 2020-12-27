@@ -1,8 +1,9 @@
-package commands;
+package commands.misc;
 
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import commands.Command;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class AliveCheck extends Command{
+public class AliveCheck extends Command {
 
 
     public AliveCheck(GuildMessageReceivedEvent event, String[] args) {

@@ -1,13 +1,17 @@
 package data;
 
-import commands.AliveCheck;
+import commands.misc.AliveCheck;
 import commands.calc.Add;
 import commands.calc.Divide;
 import commands.calc.Multiply;
 import commands.calc.Subtract;
 import commands.quote.DeleteQuote;
+import commands.quote.GetQuote;
+import commands.quote.GetQuotes;
+import commands.quote.Quote;
 import commands.wordnik.Define;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
 
@@ -23,9 +27,9 @@ public class CommandStorage {
         commands.put("subtract", Subtract.class);
         commands.put("multiply", Multiply.class);
         commands.put("divide", Divide.class);
-        commands.put("quote", Divide.class);
-        commands.put("get-quote", Divide.class);
-        commands.put("get-quotes", Divide.class);
+        commands.put("quote", Quote.class);
+        commands.put("get-quote", GetQuote.class);
+        commands.put("get-quotes", GetQuotes.class);
         commands.put("delete-quote", DeleteQuote.class);
         commands.put("define", Define.class);
     }

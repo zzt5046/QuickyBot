@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e1030ae7-af22-4dba-83d2-7abb429b4249" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/commands/quote/QuoteDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/data/QuoteEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/AliveCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/misc/AliveCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/QuoteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/quote/DeleteQuote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/quote/DeleteQuote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/quote/GetQuotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/quote/GetQuotes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/quote/QuoteType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/CommandStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/CommandStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/QuoteRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/QuoteRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enums/CommandType.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gCjytoIIztUU2i0mrxhUibAlsZ" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="RunQuickyBot" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Bot" />
+      <module name="BotOne" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e1030ae7-af22-4dba-83d2-7abb429b4249" name="Default Changelist" comment="" />
+      <created>1597625727102</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597625727102</updated>
+      <workItem from="1597625729477" duration="6229000" />
+      <workItem from="1597709974638" duration="11948000" />
+      <workItem from="1597785783999" duration="5816000" />
+      <workItem from="1597804253210" duration="640000" />
+      <workItem from="1597805246585" duration="2803000" />
+      <workItem from="1597978491000" duration="3105000" />
+      <workItem from="1598071312190" duration="305000" />
+      <workItem from="1598103449198" duration="599000" />
+      <workItem from="1598116915045" duration="6516000" />
+      <workItem from="1598135761148" duration="601000" />
+      <workItem from="1598144697630" duration="1473000" />
+      <workItem from="1598155851470" duration="2703000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597625778144">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597625778144" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1598158055963">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597787387578" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598158055963" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597718539040" />
+    <state x="689" y="321" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1597625757213">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="321" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597625757213" />
+    <state x="259" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597632995812">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="259" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597632995812" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1598125604039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598125604039" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597722578484" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1598125604039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598125604039" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597722578484" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1598125604039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598125604039" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597722578484" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1598125604039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598125604039" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597722578484" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1598125604039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598125604039" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1598125604039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598125604039" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1598125604039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598125604039" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1598125604039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598125604039" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1597808147894">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597808147894" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1598156913062">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598156913062" />
+    <state x="770" y="418" key="git4idea.ui.GitStashDialog" timestamp="1598149865630">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="770" y="418" key="git4idea.ui.GitStashDialog/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598149865630" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/commands/wordnik/WordnikAPI.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/commands/audio/Play.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
