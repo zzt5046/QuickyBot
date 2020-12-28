@@ -3,14 +3,23 @@ package commands;
 import data.CommandStorage;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class EventListener extends ListenerAdapter {
+
+public class BasicEventListener extends ListenerAdapter {
+
+    private static Logger logger = LoggerFactory.getLogger(BasicEventListener.class);
+
+    public BasicEventListener(){
+        logger.info("Basic event listener initialized.");
+    }
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event){
 
         //small sleep just before the bot will formulate its response
         try {
-            Thread.sleep(200);
+            Thread.sleep(100);
         } catch (Exception e) {
             e.printStackTrace();
         }

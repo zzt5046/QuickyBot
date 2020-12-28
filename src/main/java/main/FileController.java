@@ -1,13 +1,25 @@
 package main;
 
 import enums.FileType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 
 public class FileController {
 
     private static String rootPath = "savedFiles/";
+    private static Logger logger = LoggerFactory.getLogger(FileController.class);
+    private static FileController instance = new FileController();
 
-    //Serializes a given object into a binary file in a desired location.
+    private FileController(){}
+
+    public static FileController getInstance(){
+        return instance;
+    }
+
+    //TODO - Get rid of this file shit and use an embedded DB instead
+
     //All files are saved with the extension .qbf (aka quicky-bot file)
     public static void saveFile(FileType fileType, String user, Object data){
         String filePath = rootPath + fileType.toString() + "/" + user + ".qbf";
@@ -20,10 +32,12 @@ public class FileController {
 
             objectOutputStream.close();
             fileOutputStream.close();
+            logger.info(fileType.name() + "file saved successfully for user: " + user);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found.");
+            logger.error("Error finding file at path: " + filePath);
         } catch (IOException e) {
-            System.out.println("Error initializing stream");
+            logger.error("Error initializing stream");
+            e.printStackTrace();
         }
     }
 
@@ -47,32 +61,37 @@ public class FileController {
         try{
             File file = new File(filePath);
             if(file.exists()){
+                logger.info("Getting " + fileType.name() + " file for user: " + user + "...");
                 return file;
             }
             else{
                 return null;
             }
         }catch(Exception e){
-            System.out.println("File not found: " + filePath);
+            logger.error("Error finding file at path: " + filePath);
             return null;
         }
     }
 
     //We need to ensure that the directories that will be used are valid and ready to go
-    public static void init(){
+    public void init(){
+        logger.info("Initializing required directories...");
         try {
             File rootDir = new File(rootPath);
             File quoteDir = new File(rootPath + "quote/");
 
             if(!rootDir.exists()) {
-                quoteDir.mkdirs();
+                rootDir.mkdirs();
+                logger.info("Created root dir.");
             }
 
             if(!quoteDir.exists()) {
                 quoteDir.mkdirs();
+                logger.info("Created quote dir.");
             }
 
         }catch(Exception e){
+            logger.error("Error initializing file structure;");
             e.printStackTrace();
         }
     }

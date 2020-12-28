@@ -17,9 +17,9 @@ public class QuickyBotUtils {
         File insultFile = new File(QuickyBotUtils.class.getClassLoader().getResource("insults.txt").getFile());
         try {
             Scanner s = new Scanner(insultFile);
-            while (s.hasNext()) {
+            while (s.hasNextLine()) {
                 //the asterisks format the text in-app to be bold/italics. for the drama, you know?
-                insults.add(italicize(s.next()));
+                insults.add(italicize(s.nextLine()));
             }
             s.close();
         }catch(FileNotFoundException e){
@@ -35,12 +35,12 @@ public class QuickyBotUtils {
 
         ArrayList<String> statuses = new ArrayList<>();
 
-        File insultFile = new File(QuickyBotUtils.class.getClassLoader().getResource("insults.txt").getFile());
+        File insultFile = new File(QuickyBotUtils.class.getClassLoader().getResource("statuses.txt").getFile());
         try {
             Scanner s = new Scanner(insultFile);
-            while (s.hasNext()) {
+            while (s.hasNextLine()) {
                 //the asterisks format the text in-app to be bold/italics. for the drama, you know?
-                statuses.add(s.next());
+                statuses.add(s.nextLine());
             }
             s.close();
         }catch(FileNotFoundException e){
@@ -49,6 +49,14 @@ public class QuickyBotUtils {
 
         Random r = new Random();
         int index = r.nextInt((statuses.size() - 0) + 1) + 0;
+
+        //TODO - Fix the incorrect bounds bug
+        if(index == statuses.size()){
+            index--;
+        }else if(index < 0){
+            index = 0;
+        }
+
         return statuses.get(index);
     }
 

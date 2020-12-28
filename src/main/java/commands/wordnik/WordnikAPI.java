@@ -19,7 +19,7 @@ public class WordnikAPI {
     static String call(String urlString, WordnikType type) throws IOException {
         String returnInfo = "";
 
-        PropertyLoader properties = new PropertyLoader();
+        PropertyLoader properties = PropertyLoader.getInstance();
         StringBuilder sb = new StringBuilder(urlString);
         if(type == WordnikType.define) {
             sb.append("limit=1&includeRelated=false&sourceDictionaries=wiktionary%2Cwebster%2Cwordnet&useCanonical=false&includeTags=false&api_key=" + properties.getProperty("wordnik"));

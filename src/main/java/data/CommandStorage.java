@@ -11,11 +11,15 @@ import commands.quote.GetQuotes;
 import commands.quote.Quote;
 import commands.wordnik.Define;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
 
 public class CommandStorage {
+
+    private static Logger logger = LoggerFactory.getLogger(CommandStorage.class);
 
     private GuildMessageReceivedEvent event;
     private String[] args;
@@ -43,6 +47,9 @@ public class CommandStorage {
         try {
             Constructor constructor = commands.get(command).getDeclaredConstructor(GuildMessageReceivedEvent.class, String[].class);
             constructor.newInstance(event, args);
+        }catch (NullPointerException e){
+            String user = event.getAuthor().getName();
+            logger.error(user + " has entered invalid command: \"" + command + "\"");
         }catch (Exception e){
             e.printStackTrace();
         }
